@@ -7,6 +7,7 @@ const posts = [
     post: "images/post-vangogh.jpg",
     comment: "just took a few mushrooms lol",
     likes: 21987,
+    liked: false,
   },
 
   {
@@ -17,6 +18,7 @@ const posts = [
     post: "images/post-courbet.jpg",
     comment: "i'm feelin a bit stressed tbh",
     likes: 400,
+    liked: false,
   },
 
   {
@@ -28,6 +30,7 @@ const posts = [
     comment:
       "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
     likes: 15209,
+    liked: false,
   },
 
   {
@@ -39,6 +42,7 @@ const posts = [
     comment:
       "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
     likes: 22309,
+    liked: false,
   },
 ];
 
@@ -50,7 +54,7 @@ for (let i = 0; i < posts.length; i++) {
           <div class="details">
             <img
               src="./${posts[i].avatar}"
-              alt="avatar of vangogh"
+              alt="avatar of ${posts[i].name}"
               id="avatar"
             />
             <div class="text">
@@ -62,13 +66,13 @@ for (let i = 0; i < posts.length; i++) {
           <img src="./${posts[i].post}" alt="post of ${posts[i].name}" />
 
           <div class="lcs">
-            <img src="./images/icon-heart.png" alt="like icon"/>
+            <img src="./images/icon-heart.png" alt="like icon" class="like-icon" data-index="${i}"/>
             <img src="./images/icon-comment.png" alt="comment icon" />
             <img src="./images/icon-dm.png" alt="share icon" />
           </div>
 
           <div class="likes lcs">
-            <p id = "like-display">${posts[i].likes} likes</p>
+            <p id = "like-display-${i}">${posts[i].likes} likes</p>
           </div>
 
           <div class="comments lcs">
@@ -77,3 +81,26 @@ for (let i = 0; i < posts.length; i++) {
         </div>
     `;
 }
+
+// Add event listeners to each like icon
+const likeIcons = document.querySelectorAll(".like-icon");
+
+likeIcons.forEach((icon) => {
+  icon.addEventListener("click", function () {
+    const index = this.getAttribute("data-index");
+
+    // Toggle liked state
+    if (!posts[index].liked) {
+      posts[index].likes++; // Increase likes
+    } else {
+      posts[index].likes--; // Decrease likes
+    }
+
+    // Update liked state
+    posts[index].liked = !posts[index].liked;
+
+    // Update the displayed likes
+    const likeDisplay = document.getElementById(`like-display-${index}`);
+    likeDisplay.textContent = `${posts[index].likes} likes`; // Update the displayed likes
+  });
+});
