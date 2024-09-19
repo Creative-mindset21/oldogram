@@ -6,6 +6,7 @@ Welcome to Oldogram, a fun and nostalgic social media platform inspired by the c
 
 - **User Profiles**: Create and customize your own profile with a profile picture and bio.
 - **Feed**: Scroll through a personalized feed of posts from friends and followed users.
+- - **Like posts**: Engage with posts by liking.
 
 ## Getting Started
 

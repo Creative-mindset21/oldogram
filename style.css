@@ -93,15 +93,16 @@ main {
 
 .lcs {
   padding: 0 4%;
+  margin-bottom: 5px;
 }
 
-.lcs img {
-  width: 25px;
+.lcs i {
+  font-size: 1.8rem;
   cursor: pointer;
 }
 
-.lcs img:hover {
-  opacity: 0.6;
+.like-icon.active {
+  color: red;
 }
 
 .likes {

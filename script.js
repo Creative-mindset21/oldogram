@@ -66,9 +66,9 @@ for (let i = 0; i < posts.length; i++) {
           <img src="./${posts[i].post}" alt="post of ${posts[i].name}" />
 
           <div class="lcs">
-            <img src="./images/icon-heart.png" alt="like icon" class="like-icon" data-index="${i}"/>
-            <img src="./images/icon-comment.png" alt="comment icon" />
-            <img src="./images/icon-dm.png" alt="share icon" />
+            <i class='bx bxs-heart like-icon' data-index="${i}"></i>
+            <i class='bx bx-message-square-dots'></i>
+            <i class='bx bxl-telegram' ></i>
           </div>
 
           <div class="likes lcs">
@@ -91,7 +91,7 @@ likeIcons.forEach((icon) => {
 
     // Toggle liked state
     if (!posts[index].liked) {
-      posts[index].likes++; // Increase likes
+      posts[index].likes++;
     } else {
       posts[index].likes--; // Decrease likes
     }
